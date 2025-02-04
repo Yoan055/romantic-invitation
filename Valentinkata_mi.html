@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Invitation</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('background.jpg'); /* Смени с твоята снимка */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 30px;
+            color: white;
+            text-shadow: 2px 2px 10px black;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            margin-left: 20px;
+        }
+        #message, .image-container, #message2 {
+            display: none;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 10px black;
+            margin-top: 50px;
+            padding: 20px;
+            border: 5px solid white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ще бъдеш ли моята валентинка? &lt;3</h1>
+    
+    <div class="buttons">
+        <button id="yes" onclick="showLove()">Yes</button>
+        <button id="no" onclick="growYes()">No</button>
+    </div>
+    
+    <h2 id="message">Уесс мау-мау знаех си, че искаш да си моята валентинка &lt;3 &lt;3 &lt;3 ОБИЧАМ ТЕ ЩЕ СЕ ВИДИМ ТОГАВА &lt;3!</h2>
+    
+    <div class="image-container">
+        <img src="image.jpg" alt="Снимка" width="300"> <!-- Замени със снимка -->
+    </div>
+    
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let message = document.getElementById('message');
+        let imageContainer = document.querySelector('.image-container');
+        
+        function growYes() {
+            let currentSize = yesButton.offsetWidth;
+            yesButton.style.width = (currentSize * 2) + "px";
+            yesButton.style.height = (yesButton.offsetHeight * 2) + "px";
+            if (yesButton.offsetWidth > window.innerWidth) {
+                yesButton.style.width = "100vw";
+                yesButton.style.height = "100vh";
+            }
+        }
+        
+        function showLove() {
+            document.body.style.backgroundImage = "url('background2.jpg')";
+            document.body.style.backgroundColor = "transparent";
+            document.querySelector('h1').style.display = "none";
+            yesButton.style.display = "none";
+            noButton.style.display = "none";
+            message.style.display = "block";
+            imageContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>
